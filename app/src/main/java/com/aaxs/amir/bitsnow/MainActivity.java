@@ -16,14 +16,17 @@ import org.json.JSONObject;
 
 import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.List;
+
+import eu.davidea.flexibleadapter.items.IFlexible;
 
 public class MainActivity extends AppCompatActivity {
 
     private String TAG = MainActivity.class.getSimpleName();
-
     private ProgressDialog pDialog;
     private ListView lv;
     ListAdapter adapter;
+
 
     SwipeRefreshLayout swipeRefreshLayout;
 
@@ -38,6 +41,7 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
 
         itemsList = new ArrayList<>();
+        List<IFlexible> myItems = itemsList;
         //swipeRefreshLayout = (SwipeRefreshLayout) findViewById(R.id.swiperefresh);// TODO: 10/13/2017 CHECK FOR REFRESH ON SWIPE WITH FV
 
         swipeRefreshLayout.setOnRefreshListener(new SwipeRefreshLayout.OnRefreshListener() {

@@ -69,7 +69,7 @@ public class MainActivity extends AppCompatActivity {
                         String id = c.getString("id");
                         String title = c.getString("name");    //title
                         String desc = c.getString("title");      //desc
-                        insertData(new EventModel(id, title, desc));
+                        filterData(new EventModel(id, title, desc));
                     }
                 }
             } catch (Exception e) {
@@ -79,7 +79,7 @@ public class MainActivity extends AppCompatActivity {
             return null;
         }
 
-        private void insertData(EventModel eventModel) {
+        private void filterData(EventModel eventModel) {    // TODO: 10/13/2017 ADD MORE FILTER PARAMS
 
             for(EventModel em : arrayList){
                 if (em.getId() == eventModel.getId()){
@@ -100,5 +100,6 @@ public class MainActivity extends AppCompatActivity {
             }
             init();
         }
+
     }
 }

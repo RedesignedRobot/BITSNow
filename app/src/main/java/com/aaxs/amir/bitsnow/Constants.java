@@ -6,7 +6,7 @@ package com.aaxs.amir.bitsnow;
 
 public class Constants {
 
-    public static String URL ="";   //// TODO: 10/13/2017 ADD API ENDPOINT URL
+    public static String apiEndpoint ="http://192.168.43.128:8000/api/";   //// TODO: 10/13/2017 ADD API ENDPOINT URL
     public static boolean dev_mode =true;
 
 }

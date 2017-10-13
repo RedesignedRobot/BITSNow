@@ -1,10 +1,6 @@
 package com.aaxs.amir.bitsnow;
 
 import android.os.AsyncTask;
-import android.os.Bundle;
-import android.support.v7.app.AppCompatActivity;
-import android.support.v7.widget.LinearLayoutManager;
-import android.support.v7.widget.RecyclerView;
 
 import org.json.JSONArray;
 import org.json.JSONObject;
@@ -12,35 +8,15 @@ import org.json.JSONObject;
 import java.util.ArrayList;
 import java.util.List;
 
-import eu.davidea.flexibleadapter.FlexibleAdapter;
 import eu.davidea.flexibleadapter.items.IFlexible;
 
 import static com.aaxs.amir.bitsnow.Constants.apiEndpoint;
 
-public class MainActivity extends AppCompatActivity {
+/**
+ * Created by NitroV17 on 10/13/2017.
+ */
 
-    private RecyclerView recyclerView;
-    private RecyclerView.LayoutManager layoutManager;
-    private APIHandler apiHandler;
-
-    @Override
-    protected void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
-
-        new APIHandler().execute();
-        apiHandler = new APIHandler();
-        List<IFlexible> myItems = apiHandler.list;
-        FlexibleAdapter<IFlexible> adapter = new FlexibleAdapter<>(myItems);
-        recyclerView = (RecyclerView) findViewById(R.id.rv);
-        layoutManager = new LinearLayoutManager(this);
-        recyclerView.setLayoutManager(layoutManager);
-        recyclerView.setAdapter(adapter);
-    }
-
-}
-
-class APIHandler extends AsyncTask<Void, Void, Void> {
+public class APIHandler extends AsyncTask<Void, Void, Void> {
 
     private ArrayList<EventModel> arrayList = new ArrayList<>();
     public List<IFlexible> list = new ArrayList<>();

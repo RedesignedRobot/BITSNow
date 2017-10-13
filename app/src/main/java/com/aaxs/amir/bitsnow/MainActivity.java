@@ -2,6 +2,7 @@ package com.aaxs.amir.bitsnow;
 
 import android.os.AsyncTask;
 import android.os.Bundle;
+import android.support.v4.widget.SwipeRefreshLayout;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
@@ -23,6 +24,9 @@ public class MainActivity extends AppCompatActivity {
     private RecyclerView.LayoutManager layoutManager;
     protected ArrayList<EventModel> arrayList = new ArrayList<>();
     protected List<IFlexible> list = new ArrayList<>();
+    private SwipeRefreshLayout swipeRefreshLayout;
+    private FlexibleAdapter<IFlexible> adapter;
+    private boolean isAllowed=true;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -31,13 +35,22 @@ public class MainActivity extends AppCompatActivity {
         recyclerView = (RecyclerView) findViewById(R.id.rv);
         layoutManager = new LinearLayoutManager(this);
         recyclerView.setLayoutManager(layoutManager);
+        swipeRefreshLayout = (SwipeRefreshLayout) findViewById(R.id.swipeRefresh);
+
+        swipeRefreshLayout.setOnRefreshListener(new SwipeRefreshLayout.OnRefreshListener() {
+            @Override
+            public void onRefresh() {
+                new APIHandler().execute();
+                swipeRefreshLayout.setRefreshing(false);
+            }
+        });
 
         new APIHandler().execute();
     }
 
     public void init(){
         List<IFlexible> myItems = list;
-        FlexibleAdapter<IFlexible> adapter = new FlexibleAdapter<>(myItems);
+        adapter = new FlexibleAdapter<>(myItems);
         recyclerView.setAdapter(adapter);
     }
 
@@ -56,17 +69,32 @@ public class MainActivity extends AppCompatActivity {
                         String id = c.getString("id");
                         String title = c.getString("name");    //title
                         String desc = c.getString("title");      //desc
-                        arrayList.add(new EventModel(id, title, desc));
+                        insertData(new EventModel(id, title, desc));
                     }
                 }
             } catch (Exception e) {
                 e.printStackTrace();
             }
+
             return null;
+        }
+
+        private void insertData(EventModel eventModel) {
+
+            for(EventModel em : arrayList){
+                if (em.getId() == eventModel.getId()){
+                    isAllowed=false;
+                }
+            }
+            if(isAllowed){
+                arrayList.add(eventModel);
+            }
+
         }
 
         @Override
         protected void onPostExecute(Void result) {
+            list.clear();
             for (EventModel em : arrayList) {
                 list.add(new EventAdapter(em.getId(), em.getTitle(), em.getDesc()));
             }

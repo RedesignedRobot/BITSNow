@@ -67,9 +67,17 @@ public class MainActivity extends AppCompatActivity {
                     for (int i = 0; i < items.length(); i++) {
                         JSONObject c = items.getJSONObject(i);
                         String id = c.getString("id");
-                        String eTitle = c.getString("eTitle");    //title
-                        String eDesc = c.getString("eDesc");      //desc
-                        filterData(new EventModel(id, eTitle, eDesc));
+                        String eTitle = c.getString("eTitle");
+                        String eDesc = c.getString("eDesc");
+                        String cName = c.getString("cName");
+                        String cId = c.getString("cId");
+                        String eStartDate = c.getString("eStartDate");
+                        if(eStartDate.isEmpty())
+                            eStartDate="NULL";
+                        String eEndDate = c.getString("eEndDate");
+                        if(eEndDate.isEmpty())
+                            eStartDate="NULL";
+                        filterData(new EventModel(id, eTitle, eDesc, cName, cId, eStartDate, eEndDate));
                     }
                 }
             } catch (Exception e) {
@@ -96,7 +104,7 @@ public class MainActivity extends AppCompatActivity {
         protected void onPostExecute(Void result) {
             list.clear();
             for (EventModel em : arrayList) {
-                list.add(new EventAdapter(em.getId(), em.geteTitle(), em.geteDesc()));
+                list.add(new EventAdapter(em.getId(), em.geteTitle(), em.geteDesc(), em.getcName(), em.getcId(), em.geteStartDate(), em.geteEndDate()));
             }
             init();
         }

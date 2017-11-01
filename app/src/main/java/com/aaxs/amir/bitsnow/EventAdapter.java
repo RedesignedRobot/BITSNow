@@ -69,6 +69,10 @@ public class EventAdapter extends AbstractFlexibleItem<EventAdapter.EventViewHol
         // TODO: 10/13/2017 USE THE ID PARM FOR DISP?
         holder.eventTitle.setText(eTitle);
         holder.eventDesc.setText(eDesc);
+        holder.clubName.setText(cName);
+        holder.clubId.setText(cId);
+        holder.eventStartDate.setText(eStartDate);
+        holder.eventEndDate.setText(eEndDate);
 
     }
 
@@ -76,11 +80,19 @@ public class EventAdapter extends AbstractFlexibleItem<EventAdapter.EventViewHol
 
         public TextView eventTitle;
         public TextView eventDesc;
+        public TextView clubName;
+        public TextView clubId;
+        public TextView eventStartDate;
+        public TextView eventEndDate;
 
         public EventViewHolder(View view, FlexibleAdapter adapter) {
             super(view, adapter);
-            eventTitle =(TextView) view.findViewById(R.id.title);
-            eventDesc =(TextView) view.findViewById(R.id.desc);
+            eventTitle =(TextView) view.findViewById(R.id.etitle);
+            eventDesc =(TextView) view.findViewById(R.id.edesc);
+            clubName =(TextView) view.findViewById(R.id.cname);
+            clubId =(TextView) view.findViewById(R.id.cid);
+            eventStartDate =(TextView) view.findViewById(R.id.estartdate);
+            eventEndDate =(TextView) view.findViewById(R.id.eenddate);
         }
     }
 

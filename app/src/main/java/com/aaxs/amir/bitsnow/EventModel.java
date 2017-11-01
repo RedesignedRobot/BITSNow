@@ -7,13 +7,27 @@ package com.aaxs.amir.bitsnow;
 public class EventModel {
 
     private String id;
-    private String title;
-    private String desc;
+    private String eTitle;
+    private String eDesc;
+    private String cName;
+    private String cId;
+    private String eStartDate;
+    private String eEndDate;
 
-    public EventModel(String id, String title, String desc) {
+    public EventModel(String id, String eTitle, String eDesc) {
         this.id = id;
-        this.title = title;
-        this.desc = desc;
+        this.eTitle = eTitle;
+        this.eDesc = eDesc;
+    }
+
+    public EventModel(String id, String eTitle, String eDesc, String cName, String cId, String eStartDate, String eEndDate) {
+        this.id = id;
+        this.eTitle = eTitle;
+        this.eDesc = eDesc;
+        this.cName = cName;
+        this.cId = cId;
+        this.eStartDate = eStartDate;
+        this.eEndDate = eEndDate;
     }
 
     public String getId() {
@@ -24,19 +38,51 @@ public class EventModel {
         this.id = id;
     }
 
-    public String getTitle() {
-        return title;
+    public String geteTitle() {
+        return eTitle;
     }
 
-    public void setTitle(String title) {
-        this.title = title;
+    public void seteTitle(String eTitle) {
+        this.eTitle = eTitle;
     }
 
-    public String getDesc() {
-        return desc;
+    public String geteDesc() {
+        return eDesc;
     }
 
-    public void setDesc(String desc) {
-        this.desc = desc;
+    public void seteDesc(String eDesc) {
+        this.eDesc = eDesc;
+    }
+
+    public String getcName() {
+        return cName;
+    }
+
+    public void setcName(String cName) {
+        this.cName = cName;
+    }
+
+    public String getcId() {
+        return cId;
+    }
+
+    public void setcId(String cId) {
+        this.cId = cId;
+    }
+
+    public String geteStartDate() {
+        return eStartDate;
+    }
+
+    public void seteStartDate(String eStartDate) {
+        this.eStartDate = eStartDate;
+    }
+
+    public String geteEndDate() {
+        return eEndDate;
+    }
+
+    public void seteEndDate(String eEndDate) {
+        this.eEndDate = eEndDate;
     }
 }

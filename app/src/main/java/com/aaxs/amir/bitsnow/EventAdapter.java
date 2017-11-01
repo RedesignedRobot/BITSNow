@@ -16,15 +16,29 @@ import eu.davidea.viewholders.FlexibleViewHolder;
 public class EventAdapter extends AbstractFlexibleItem<EventAdapter.EventViewHolder>{
 
     private String id;
-    private String title;
-    private String desc;
+    private String eTitle;
+    private String eDesc;
+    private String cName;
+    private String cId;
+    private String eStartDate;
+    private String eEndDate;
 
-    public EventAdapter(String id, String title, String desc) {
+
+    public EventAdapter(String id, String eTitle, String eDesc) {
         this.id = id;
-        this.title = title;
-        this.desc = desc;
+        this.eTitle = eTitle;
+        this.eDesc = eDesc;
     }
 
+    public EventAdapter(String id, String eTitle, String eDesc, String cName, String cId, String eStartDate, String eEndDate) {
+        this.id = id;
+        this.eTitle = eTitle;
+        this.eDesc = eDesc;
+        this.cName = cName;
+        this.cId = cId;
+        this.eStartDate = eStartDate;
+        this.eEndDate = eEndDate;
+    }
 
     @Override
     public boolean equals(Object o) {
@@ -53,20 +67,20 @@ public class EventAdapter extends AbstractFlexibleItem<EventAdapter.EventViewHol
     @Override
     public void bindViewHolder(FlexibleAdapter adapter, EventAdapter.EventViewHolder holder, int position, List payloads) {
         // TODO: 10/13/2017 USE THE ID PARM FOR DISP?
-        holder.title.setText(title);
-        holder.desc.setText(desc);
+        holder.eventTitle.setText(eTitle);
+        holder.eventDesc.setText(eDesc);
 
     }
 
     class EventViewHolder extends FlexibleViewHolder{
 
-        public TextView title;
-        public TextView desc;
+        public TextView eventTitle;
+        public TextView eventDesc;
 
         public EventViewHolder(View view, FlexibleAdapter adapter) {
             super(view, adapter);
-            title =(TextView) view.findViewById(R.id.title);
-            desc =(TextView) view.findViewById(R.id.desc);
+            eventTitle =(TextView) view.findViewById(R.id.title);
+            eventDesc =(TextView) view.findViewById(R.id.desc);
         }
     }
 

@@ -67,9 +67,9 @@ public class MainActivity extends AppCompatActivity {
                     for (int i = 0; i < items.length(); i++) {
                         JSONObject c = items.getJSONObject(i);
                         String id = c.getString("id");
-                        String title = c.getString("name");    //title
-                        String desc = c.getString("title");      //desc
-                        filterData(new EventModel(id, title, desc));
+                        String eTitle = c.getString("eTitle");    //title
+                        String eDesc = c.getString("eDesc");      //desc
+                        filterData(new EventModel(id, eTitle, eDesc));
                     }
                 }
             } catch (Exception e) {
@@ -96,7 +96,7 @@ public class MainActivity extends AppCompatActivity {
         protected void onPostExecute(Void result) {
             list.clear();
             for (EventModel em : arrayList) {
-                list.add(new EventAdapter(em.getId(), em.getTitle(), em.getDesc()));
+                list.add(new EventAdapter(em.getId(), em.geteTitle(), em.geteDesc()));
             }
             init();
         }

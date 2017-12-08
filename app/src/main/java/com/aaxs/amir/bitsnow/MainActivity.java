@@ -52,6 +52,7 @@ public class MainActivity extends AppCompatActivity {
         List<IFlexible> myItems = list;
         adapter = new FlexibleAdapter<>(myItems);
         recyclerView.setAdapter(adapter);
+        adapter.notifyDataSetChanged();
     }
 
 

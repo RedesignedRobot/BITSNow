@@ -1,7 +1,6 @@
 package com.aaxs.amir.bitsnow;
 
 import android.util.Log;
-
 import java.io.BufferedInputStream;
 import java.io.BufferedReader;
 import java.io.IOException;
@@ -13,8 +12,7 @@ import java.net.ProtocolException;
 import java.net.URL;
 
 /**
- * Created by Ravi Tamada on 01/09/16.
- * www.androidhive.info
+ * Class for handeling all the HHTP calls to the server.Credit to Ravi Tamada
  */
 public class HttpHandler {
 
@@ -23,13 +21,17 @@ public class HttpHandler {
     public HttpHandler() {
     }
 
+    /**
+     * Method to make the api GET request. It returns the JSON response as a String.
+     * @param reqUrl
+     * @return
+     */
     public String makeServiceCall(String reqUrl) {
         String response = null;
         try {
             URL url = new URL(reqUrl);
             HttpURLConnection conn = (HttpURLConnection) url.openConnection();
             conn.setRequestMethod("GET");
-            // read the response
             InputStream in = new BufferedInputStream(conn.getInputStream());
             response = convertStreamToString(in);
         } catch (MalformedURLException e) {
@@ -44,6 +46,9 @@ public class HttpHandler {
         return response;
     }
 
+    /**
+     * Method to break the JSON responses into NL
+     */
     private String convertStreamToString(InputStream is) {
         BufferedReader reader = new BufferedReader(new InputStreamReader(is));
         StringBuilder sb = new StringBuilder();

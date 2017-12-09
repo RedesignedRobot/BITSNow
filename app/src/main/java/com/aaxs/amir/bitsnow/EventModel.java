@@ -1,7 +1,7 @@
 package com.aaxs.amir.bitsnow;
 
 /**
- * Created by NitroV17 on 10/13/2017.
+ *  Java class modeled after the API. Used for creating objects from the API.
  */
 
 public class EventModel {

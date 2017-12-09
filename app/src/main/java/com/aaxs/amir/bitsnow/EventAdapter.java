@@ -2,16 +2,16 @@ package com.aaxs.amir.bitsnow;
 
 import android.view.View;
 import android.widget.TextView;
-
 import java.util.List;
-
 import eu.davidea.flexibleadapter.FlexibleAdapter;
 import eu.davidea.flexibleadapter.items.AbstractFlexibleItem;
 import eu.davidea.viewholders.FlexibleViewHolder;
 
 /**
- * Created by NitroV17 on 10/13/2017.
- */
+*   Android adapter for recylerview. Used for binding data set form API and inflating them in XML
+*   views.
+*   Library credit to Davide Steduto
+**/
 
 public class EventAdapter extends AbstractFlexibleItem<EventAdapter.EventViewHolder>{
 
@@ -24,13 +24,16 @@ public class EventAdapter extends AbstractFlexibleItem<EventAdapter.EventViewHol
     private String eEndDate;
 
 
+    //Constructor for cards with only 3 disp parms
     public EventAdapter(String id, String eTitle, String eDesc) {
         this.id = id;
         this.eTitle = eTitle;
         this.eDesc = eDesc;
     }
 
-    public EventAdapter(String id, String eTitle, String eDesc, String cName, String cId, String eStartDate, String eEndDate) {
+    //Main Constructor for cards
+    public EventAdapter(String id, String eTitle, String eDesc, String cName, String cId,
+                        String eStartDate, String eEndDate) {
         this.id = id;
         this.eTitle = eTitle;
         this.eDesc = eDesc;
@@ -40,6 +43,7 @@ public class EventAdapter extends AbstractFlexibleItem<EventAdapter.EventViewHol
         this.eEndDate = eEndDate;
     }
 
+    //Used for card filtering to avoid duplicates
     @Override
     public boolean equals(Object o) {
         if (o instanceof EventAdapter) {
@@ -65,8 +69,9 @@ public class EventAdapter extends AbstractFlexibleItem<EventAdapter.EventViewHol
     }
 
     @Override
-    public void bindViewHolder(FlexibleAdapter adapter, EventAdapter.EventViewHolder holder, int position, List payloads) {
-        // TODO: 10/13/2017 USE THE ID PARM FOR DISP?
+    public void bindViewHolder(FlexibleAdapter adapter, EventAdapter.EventViewHolder holder,
+                               int position, List payloads) {
+        // TODO: 10/13/2017 USE THE ID PARM FOR DISP
         holder.eventTitle.setText(eTitle);
         holder.eventDesc.setText(eDesc);
         holder.clubName.setText(cName);

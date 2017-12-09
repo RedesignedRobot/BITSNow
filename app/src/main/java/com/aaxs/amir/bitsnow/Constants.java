@@ -1,12 +1,15 @@
 package com.aaxs.amir.bitsnow;
 
 /**
- * Created by NitroV17 on 10/13/2017.
+ * Java class for static vars.
  */
 
 public class Constants {
+    
 
-    public static String apiEndpoint ="http://192.168.43.150:8000/api/";   //// TODO: 10/13/2017 ADD API ENDPOINT URL
+    //Api endpoint of the django server running on the VM.
+    // TODO: 12/9/2017 Add other api endpoints for create and update 
+    public static String apiEndpoint ="http://192.168.43.150:8000/api/";
     public static boolean dev_mode =true;
 
 }

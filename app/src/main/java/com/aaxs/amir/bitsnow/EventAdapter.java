@@ -2,7 +2,9 @@ package com.aaxs.amir.bitsnow;
 
 import android.view.View;
 import android.widget.TextView;
+
 import java.util.List;
+
 import eu.davidea.flexibleadapter.FlexibleAdapter;
 import eu.davidea.flexibleadapter.items.AbstractFlexibleItem;
 import eu.davidea.viewholders.FlexibleViewHolder;
@@ -72,6 +74,7 @@ public class EventAdapter extends AbstractFlexibleItem<EventAdapter.EventViewHol
     public void bindViewHolder(FlexibleAdapter adapter, EventAdapter.EventViewHolder holder,
                                int position, List payloads) {
         // TODO: 10/13/2017 USE THE ID PARM FOR DISP
+
         holder.eventTitle.setText(eTitle);
         holder.eventDesc.setText(eDesc);
         holder.clubName.setText(cName);

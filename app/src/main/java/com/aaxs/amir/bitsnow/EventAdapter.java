@@ -95,12 +95,12 @@ public class EventAdapter extends AbstractFlexibleItem<EventAdapter.EventViewHol
 
         public EventViewHolder(View view, FlexibleAdapter adapter) {
             super(view, adapter);
-            eventTitle =(TextView) view.findViewById(R.id.etitle);
-            eventDesc =(TextView) view.findViewById(R.id.edesc);
-            clubName =(TextView) view.findViewById(R.id.cname);
-            clubId =(TextView) view.findViewById(R.id.cid);
-            eventStartDate =(TextView) view.findViewById(R.id.estartdate);
-            eventEndDate =(TextView) view.findViewById(R.id.eenddate);
+            eventTitle = view.findViewById(R.id.etitle);
+            eventDesc = view.findViewById(R.id.edesc);
+            clubName = view.findViewById(R.id.cname);
+            clubId = view.findViewById(R.id.cid);
+            eventStartDate = view.findViewById(R.id.estartdate);
+            eventEndDate = view.findViewById(R.id.eenddate);
         }
     }
 
